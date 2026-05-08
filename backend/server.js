@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const path = require("path");
 
 const accountRoutes = require("./routes/accountRoutes");
 const transactionRoutes = require("./routes/transactionRoutes");
@@ -31,16 +30,9 @@ mongoose
     console.log(err);
   });
 
-// Serve frontend (IMPORTANT — before listen)
-app.use(express.static(path.join(__dirname, "../dist/client")));
-
-// FIXED wildcard route (Express v5)
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "../dist/client/index.html"));
-});
 // Test route
 app.get("/", (req, res) => {
-  res.send("FinFlow Backend Running");
+  res.send("FinFlow Backend Running 🚀");
 });
 
 const PORT = process.env.PORT || 5000;
