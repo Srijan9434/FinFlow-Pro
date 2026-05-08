@@ -35,10 +35,9 @@ mongoose
 app.use(express.static(path.join(__dirname, "../dist/client")));
 
 // FIXED wildcard route (Express v5)
-app.get("/*", (req, res) => {
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, "../dist/client/index.html"));
 });
-
 // Test route
 app.get("/", (req, res) => {
   res.send("FinFlow Backend Running");
