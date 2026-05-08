@@ -12,7 +12,10 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://tanstack-start-app.srijankapoor556.workers.dev',
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
